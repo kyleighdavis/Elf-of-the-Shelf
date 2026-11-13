@@ -1,3 +1,5 @@
+import processing.sound.*;
+
 // game states
 final int menu = 0;
 final int playing = 1;
@@ -16,7 +18,9 @@ Button quitButton;
 
 PImage workshopBackground; // background image
 
-
+// sound files
+SoundFile jingleMusic; // background music
+SoundFile bellSound; // play every 100 points
 
 // sets up the window and main menu buttoons
 void setup(){
@@ -30,6 +34,12 @@ void setup(){
   
   //load the background image
   workshopBackground = loadImage("SantasWorkshopBackground.jpeg");
+  
+  // load the sounds and start the background music
+  jingleMusic = new SoundFile(this, "jingle.mp3");
+  bellSound = new SoundFile(this, "bell.mp3");
+  jingleMusic.amp(0.4); // volume
+  jingleMusic.loop();
 }
 
 
